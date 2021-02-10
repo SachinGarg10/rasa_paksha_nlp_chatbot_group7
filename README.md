@@ -88,17 +88,17 @@ Features:
 TODO:
 ------------------
 
-- [] Correct alternative/similar/misspelling of the language.
+- [ ] Correct alternative/similar/misspelling of the language.
 
-- [] Give the number of languages that are being spoken in a country if the user enters a country.
+- [ ] Give the number of languages that are being spoken in a country if the user enters a country.
 
-- [] Give the Macro Area of a language.
+- [ ] Give the Macro Area of a language.
 
-- [] Provide the name of languages in a language family when family is entered.
+- [ ] Provide the name of languages in a language family when family is entered.
 
-- [] Provide the name of languages in a genus when genus is entered.
+- [ ] Provide the name of languages in a genus when genus is entered.
 
-- [] Give the name of languages in a Macroarea when macroarea is entered.
+- [ ] Give the name of languages in a Macroarea when macroarea is entered.
 
 License
 ------------------
