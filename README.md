@@ -79,26 +79,26 @@ You should now be able to talk to your chatbot in Slack!
 Features:
 ------------------
 
-1. Greet + Goodbye
+- [x] Greet + Goodbye
 
-2. Provide information about any language in hindi script.
+- [x] Provide information about any language in hindi script.
 
-3. Get feedback about the information provided.
+- [x] Get feedback about the information provided.
 
 TODO:
 ------------------
 
-1. Correct alternative/similar/misspelling of the language.
+- [] Correct alternative/similar/misspelling of the language.
 
-2. Give the number of languages that are being spoken in a country if the user enters a country.
+- [] Give the number of languages that are being spoken in a country if the user enters a country.
 
-3. Give the Macro Area of a language.
+- [] Give the Macro Area of a language.
 
-4. Provide the name of languages in a language family when family is entered.
+- [] Provide the name of languages in a language family when family is entered.
 
-5. Provide the name of languages in a genus when genus is entered.
+- [] Provide the name of languages in a genus when genus is entered.
 
-6. Give the name of languages in a Macroarea when macroarea is entered.
+- [] Give the name of languages in a Macroarea when macroarea is entered.
 
 License
 ------------------
