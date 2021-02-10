@@ -15,6 +15,8 @@ from rasa_sdk.executor import CollectingDispatcher
 import pandas as pd
 import os
 
+from lang import LANGS
+
 class ActionLanguageSearch(Action):
 
     def name(self) -> Text:
@@ -31,9 +33,15 @@ class ActionLanguageSearch(Action):
         if len(entities) > 0:
             print("Action lang search: entities: ", entities)
             query_lang = entities.pop()
+            #query_lang = query_lang.lower().capitalize()
+            print(query_lang)
+            query_lang = LANGS.get(query_lang, None)
+            
+            if not query_lang:
+                return []
+            
             query_lang = query_lang.lower().capitalize()
             print(query_lang)
-            
             out_row = wals_data[wals_data["Name"] == query_lang].to_dict("records")
             print("Action lang search: out_row: ", out_row)
 
