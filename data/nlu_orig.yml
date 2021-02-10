@@ -1,0 +1,111 @@
+nlu:
+- intent: greet
+  examples: |
+    - Hi
+    - Hey
+    - Hi bot
+    - Hey bot
+    - Hello
+    - Good morning
+    - hi again
+    - hi folks
+    - hi Mister
+    - hi pal!
+    - hi there
+    - greetings
+    - hello everybody
+    - hello is anybody there
+    - hello robot
+    - who are you?
+    - what are you?
+    - what's up
+    - how do you do?
+
+- intent: goodbye
+  examples: |
+    - Bye           
+    - Goodbye
+    - See you later
+    - Bye bot
+    - Goodbye friend
+    - bye
+    - bye for now
+    - catch you later
+    - gotta go
+    - See you
+    - goodnight
+    - have a nice day
+    - i'm off
+    - see you later alligator
+    - we'll speak soon
+    - end
+    - finish
+
+- intent: thanks
+  examples: |
+    - Thanks
+    - Thank you
+    - Thank you so much
+    - Thanks bot
+    - Thanks for that
+    - cheers
+    - cheers bro
+    - ok thanks!
+    - perfect thank you
+    - thanks a bunch for everything
+    - thanks for the help
+    - thanks a lot
+    - amazing, thanks
+    - cool, thanks
+    - cool thank you
+    - yes, thanks!
+
+- intent: affirm
+  examples: |
+    - y
+    - Y
+    - yes
+    - yes sure
+    - absolutely
+    - for sure
+    - yes yes yes
+    - definitely
+    - yes, it did.
+
+- intent: deny
+  examples: |
+    - no
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - n
+    - N
+
+- intent: lang_search
+  examples: |
+    - I want to know about [hindi](language)
+    - Can you please search [spanish](language)?
+    - Need more info for [french](language)
+    - Lookup [gujarati](language)
+    - Do you know about [marathi](language)
+    - What is [japanese](language)?
+    - Want to get information about [telugu](language)
+    - Show me [tamil](language) details.
+    - Tell me more about [punjabi](language)
+    - [german](language) is?
+    - Explain about [urdu](language)
+    - Please extract info about [english](language)
+    - Let me know [russian](language) language information.
+    - Please help me with [sanskrit](language) info.
+    - I need some help to find details about [hindi](language).
+    - Will you please tell about [tamil](language)?
+    - hey, I want you to look for [english](language) language details.
+    - Do you have information about [telugu](language) language?
+    - Give me details of [punjabi](language).
+    - Try to find information of [japanese](language).
+    - I am asking you to search for [french](language) language details.
+    - [marathi](language) information?
+    - Answer the details of [german](language).
+    - Please do show me [spanish](language) language information.

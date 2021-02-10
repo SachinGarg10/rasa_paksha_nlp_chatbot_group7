@@ -1,0 +1,39 @@
+rules:
+ - rule: greet the user
+   steps:
+   - intent: greet
+   - action: utter_greet
+
+ - rule: say bye to the user
+   steps:
+   - intent: goodbye
+   - action: utter_goodbye
+
+ - rule: search a language details based on user query
+   steps:
+   - intent: lang_search
+   - action: action_lang_search
+   - action: utter_feedback_ques
+
+ - rule: respond positively when the user says thank you
+   steps:
+   - intent: thanks
+   - action: utter_thanks
+   
+ - rule: positive feedback
+   steps:
+   - intent: affirm
+   - action: utter_feedback_positive
+
+ - rule: negative feedback
+   steps:
+   - intent: deny
+   - action: utter_feedback_negative
+ 
+  # - rule: submit form
+ #   condition:
+ #   - active_loop: newsletter_form
+ #   steps:
+ #   - action: newsletter_form
+ #   - active_loop: null
+ #   - action: utter_subscribed

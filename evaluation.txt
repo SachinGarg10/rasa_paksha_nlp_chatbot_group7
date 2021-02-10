@@ -1,0 +1,17 @@
+1) * No expected result about Chinese language when put the query "I want to know about Chinese Language."
+* This can be sort out by taking Chinese entity as Genus or convert it into its synonym Mandarin.
+
+2) * When entered wrong spelling of then the result didn't come like typed "Japanise" rather than the correct one "Japanese".
+* It can be solve by using spell checker.
+
+3) * No result for query "I want to know about Indo-European languages".
+* This can be solve by taking the Indo-European entity and search with Family key in languages database.
+
+4) * Typed any random stuff but still giving me some meaningful result.
+* It can be sort out by defining these random queries intent as "None" and give some "Not Understand" as utterance action.
+
+5) * If I say yes and then right after no, it is still giving thanks about feedback which doesn't make sense.
+* It can be resolve by using stories instead of rules and there we can use form to fill details take appropriate action based on it.
+
+Other than that I find everything is working. It may be because I'm biased about the code and data that I entered.
+
