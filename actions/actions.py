@@ -15,7 +15,7 @@ from rasa_sdk.executor import CollectingDispatcher
 import pandas as pd
 import os
 
-from lang import LANGS
+import lang 
 
 class ActionLanguageSearch(Action):
 
@@ -35,7 +35,7 @@ class ActionLanguageSearch(Action):
             query_lang = entities.pop()
             #query_lang = query_lang.lower().capitalize()
             print(query_lang)
-            query_lang = LANGS.get(query_lang, None)
+            query_lang = lang.LANGS.get(query_lang, None)
             
             if not query_lang:
                 return []
