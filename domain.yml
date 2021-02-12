@@ -18,34 +18,34 @@ entities:
 responses:
   utter_greet:
   - text: |
-      Hello! How can I help you?
+      नमस्ते! मैं आपकी कैसे सहायता कर सकता हूँ ?
   - text: |
-      Hi!
+      नमस्कार 
   - text: |
-      Hey! What can I do for you?  
+      नमस्ते! मैं आपके लिए क्या कर सकता हूँ?  
   utter_goodbye:
   - text: |
-      Bye
+      अलविदा
   - text: |
-      It was nice talking to you.
+      अलविदा फिर मिलते हैं
   - text: |
-      See you again!
+      आपका दिन शुभ हो
   utter_thanks:
   - text: |
-      Glad that I could be of help!
+      आपकी मदद करके अच्छा लगा। 
   - text: |
-      Thank you!
+      अद्भुत, धन्यवाद
   - text: |
-      Happy to help :)  
+      मदद करके बड़ी खुशी हुई। 
   utter_feedback_positive:
   - text: |
-      Thank you for your feedback.
+      आपकी प्रतिक्रिया के लिए आपका धन्यवाद।
   utter_feedback_negative:
   - text: |
-      Thank you for your feedback. I'll try better next time.
+      आपकी प्रतिक्रिया के लिए आपका धन्यवाद। मैं अगली बार बेहतर कोशिश करूंगा।
   utter_feedback_ques:
   - text: |
-      Did that help you?
+      क्या इससे आपको मदद मिली?
 
 actions:
 - '...'
