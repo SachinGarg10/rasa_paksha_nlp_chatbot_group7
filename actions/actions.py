@@ -47,7 +47,7 @@ class ActionLanguageSearch(Action):
 
             if len(out_row) > 0:
                 out_row = out_row[0]
-                out_text = "Language %s belongs to the Family %s\n with Genus as %s\n and has ISO code %s" % (out_row["Name"], out_row["Family"], out_row["Genus"], out_row["ISO_codes"])
+                out_text = "%s भाषा %s फैमिली से संबंधित है। \nजिसका जीनस %s हैं \nऔर ISO कोड %s हैं। " % (out_row["Name"], out_row["Family"], out_row["Genus"], out_row["ISO_codes"])
                 dispatcher.utter_message(text = out_text)
             else:
                 dispatcher.utter_message(text = "Sorry! We don't have records for the language %s" % query_lang)
