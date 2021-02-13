@@ -13,7 +13,7 @@ rules:
    steps:
    - intent: lang_search
    - action: action_lang_search
-   - action: utter_feedback_ques
+#    - action: utter_feedback_ques
 
  - rule: respond positively when the user says thank you
    steps:
