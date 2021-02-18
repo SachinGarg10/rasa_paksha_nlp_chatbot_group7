@@ -38,6 +38,7 @@ class ActionLanguageSearch(Action):
             query_lang = lang.HI_EN_LANGS.get(query_lang, None)
             
             if not query_lang:
+                dispatcher.utter_message(text = "कृपया मुझे माफ़ करें। मैं इसका उत्तर नहीं दे पाउँगा।")
                 return []
             
             query_lang = query_lang.lower().capitalize()
@@ -50,6 +51,8 @@ class ActionLanguageSearch(Action):
                 out_text = "%s भाषा %s फैमिली से संबंधित है। \nजिसका जीनस %s हैं \nऔर ISO कोड %s हैं। \nक्या इससे आपको मदद मिली?" % (lang.EN_HI_LANGS.get(str(out_row["Name"]).lower(), out_row["Name"]).lower(), out_row["Family"], out_row["Genus"], out_row["ISO_codes"])
                 dispatcher.utter_message(text = out_text)
             else:
-                dispatcher.utter_message(text = "Sorry! We don't have records for the language %s" % query_lang)
+                dispatcher.utter_message(text = "कृपया मुझे माफ़ करे! मेरे पास %s भाषा के रिकॉर्ड नहीं हैं।" % lang.EN_HI_LANGS.get(str(out_row["Name"]).lower())
+        else:
+            dispatcher.utter_message(text = "कृपया मुझे माफ़ करें। मैं इसका उत्तर नहीं दे पाउँगा।")
 
         return []
