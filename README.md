@@ -99,10 +99,11 @@ Features:
 
 - [x] Provide the name of languages in a language family when family is entered.
 
+- [x] Correct alternative/similar/misspelling of the language.
+
 TODO:
 ------------------
 
-- [ ] Correct alternative/similar/misspelling of the language.
 
 License
 ------------------
