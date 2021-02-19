@@ -79,7 +79,11 @@ You should now be able to talk to your chatbot in Slack!
 Features:
 ------------------
 
-- [x] Greet + Goodbye
+- [x] Hindi Language Chatbot
+
+- [x] Can Greet, Goodbye, Acknowledge, end conversation, retrieve information on a language, handle Hindi script
+
+- [x] Personna of Big Brother who knows about every languages.
 
 - [x] Provide information about any language in hindi script.
 
@@ -93,12 +97,12 @@ Features:
 
 - [x] Provide the name of languages in a genus when genus is entered.
 
+- [x] Provide the name of languages in a language family when family is entered.
+
 TODO:
 ------------------
 
 - [ ] Correct alternative/similar/misspelling of the language.
-
-- [ ] Provide the name of languages in a language family when family is entered.
 
 License
 ------------------
