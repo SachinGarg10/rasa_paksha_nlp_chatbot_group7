@@ -89,6 +89,8 @@ Features:
 
 - [x] Give the Macro Area of a language.
 
+- [x] Give the name of languages in a Macroarea when macroarea is entered.
+
 TODO:
 ------------------
 
@@ -97,8 +99,6 @@ TODO:
 - [ ] Provide the name of languages in a language family when family is entered.
 
 - [ ] Provide the name of languages in a genus when genus is entered.
-
-- [ ] Give the name of languages in a Macroarea when macroarea is entered.
 
 License
 ------------------
