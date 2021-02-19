@@ -85,14 +85,14 @@ Features:
 
 - [x] Get feedback about the information provided.
 
+- [x] Give the number of languages that are being spoken in a country if the user enters a country.
+
+- [x] Give the Macro Area of a language.
+
 TODO:
 ------------------
 
 - [ ] Correct alternative/similar/misspelling of the language.
-
-- [ ] Give the number of languages that are being spoken in a country if the user enters a country.
-
-- [ ] Give the Macro Area of a language.
 
 - [ ] Provide the name of languages in a language family when family is entered.
 
