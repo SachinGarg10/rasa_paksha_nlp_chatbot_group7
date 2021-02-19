@@ -97,8 +97,9 @@ class ActionLanguageSearch(Action):
             print(query_lang_hi)
             query_lang = lang.HI_EN_LANGS.get(query_lang_hi, None)
             query_country = lang.HI_EN_COUNTRIES.get(query_lang_hi, None)
+            query_macroarea = lang.HI_EN_MACROAREAS.get(query_lang_hi, None)
             
-            if not query_lang and not query_country:
+            if not query_lang and not query_country and not query_macroarea:
                 print("didn't find hindi entity")
                 dispatcher.utter_message(text = "कृपया मुझे माफ़ करे! मेरे पास %s का रिकॉर्ड नहीं हैं।" % query_lang_hi)
                 return []
@@ -140,6 +141,46 @@ class ActionLanguageSearch(Action):
                     dispatcher.utter_message(text = out_text)
                 else:
                     dispatcher.utter_message(text = "कृपया मुझे माफ़ करे! मेरे पास %s देश के रिकॉर्ड नहीं हैं।" % query_lang_hi)
+
+                return []
+            elif query_macroarea:
+                query_lang = query_macroarea.lower().capitalize()
+                print(query_lang)
+                out_row = language_data_in_eng[language_data_in_eng["macroarea"] == query_lang].to_dict("records")
+                # print("Action lang search: out_row: ", out_row)
+
+                if len(out_row) > 0:
+                    ln = []
+                    for row in out_row:
+                        ln.append(row['Name'])
+
+                    ln = list(set(ln))
+
+                    count = 3 
+                    if len(ln) < 3:
+                        count = len(ln)
+
+                    hi_lang_country = []
+                    cn = 0
+                    while cn < count:
+                        hi_lang_cnt = lang.EN_HI_LANGS.get(str(random.choice(ln)).lower(), None)
+                        if not hi_lang_cnt:
+                            continue
+
+                        hi_lang_country.append(hi_lang_cnt)
+                        cn += 1
+
+                    print("cn:", cn, "count:", count, hi_lang_country, len(hi_lang_country))
+                    # out_row = out_row[0]
+                    if hi_lang_country:
+                        out_text = "%s मैक्रो एरिया में %s भाषाएं है। \nइसकी कुछ भाषाएं इस प्रकार हैं: %s \nक्या इससे आपको मदद मिली?" % \
+                            (query_lang_hi, str(len(ln)), str(hi_lang_country))
+                    else:
+                        out_text = "%s मैक्रो एरिया में %s भाषाएं है। \nक्या इससे आपको मदद मिली?" % \
+                            (query_lang_hi, str(len(ln)))
+                    dispatcher.utter_message(text = out_text)
+                else:
+                    dispatcher.utter_message(text = "कृपया मुझे माफ़ करे! मेरे पास %s मैक्रो एरिया के रिकॉर्ड नहीं हैं।" % query_lang_hi)
 
                 return []
 
