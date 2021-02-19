@@ -14,6 +14,7 @@ from rasa_sdk.executor import CollectingDispatcher
 
 import pandas as pd
 import os
+import random
 
 import lang 
 
@@ -91,16 +92,57 @@ class ActionLanguageSearch(Action):
 
         if len(entities) > 0:
             print("Action lang search: entities: ", entities)
-            query_lang = entities.pop()
+            query_lang_hi = entities.pop()
             #query_lang = query_lang.lower().capitalize()
-            print(query_lang)
-            query_lang = lang.HI_EN_LANGS.get(query_lang, None)
+            print(query_lang_hi)
+            query_lang = lang.HI_EN_LANGS.get(query_lang_hi, None)
+            query_country = lang.HI_EN_COUNTRIES.get(query_lang_hi, None)
             
-            if not query_lang:
+            if not query_lang and not query_country:
                 print("didn't find hindi entity")
-                dispatcher.utter_message(text = "कृपया मुझे माफ़ करें। मैं इसका उत्तर नहीं दे पाउँगा।")
+                dispatcher.utter_message(text = "कृपया मुझे माफ़ करे! मेरे पास %s का रिकॉर्ड नहीं हैं।" % query_lang_hi)
                 return []
-            
+            elif query_country:
+                query_lang = query_country.lower().capitalize()
+                print(query_lang)
+                out_row = language_data_in_eng[language_data_in_eng["country"] == query_lang].to_dict("records")
+                # print("Action lang search: out_row: ", out_row)
+
+                if len(out_row) > 0:
+                    ln = []
+                    for row in out_row:
+                        ln.append(row['Name'])
+
+                    ln = list(set(ln))
+
+                    count = 3 
+                    if len(ln) < 3:
+                        count = len(ln)
+
+                    hi_lang_country = []
+                    cn = 0
+                    while cn < count:
+                        hi_lang_cnt = lang.EN_HI_LANGS.get(str(random.choice(ln)).lower(), None)
+                        if not hi_lang_cnt:
+                            continue
+
+                        hi_lang_country.append(hi_lang_cnt)
+                        cn += 1
+
+                    print("cn:", cn, "count:", count, hi_lang_country, len(hi_lang_country))
+                    # out_row = out_row[0]
+                    if hi_lang_country:
+                        out_text = "%s में %s भाषाएं है। \nइस देश की कुछ भाषाएं इस प्रकार हैं: %s \nक्या इससे आपको मदद मिली?" % \
+                            (query_lang_hi, str(len(ln)), str(hi_lang_country))
+                    else:
+                        out_text = "%s में %s भाषाएं है। \nक्या इससे आपको मदद मिली?" % \
+                            (query_lang_hi, str(len(ln)))
+                    dispatcher.utter_message(text = out_text)
+                else:
+                    dispatcher.utter_message(text = "कृपया मुझे माफ़ करे! मेरे पास %s देश के रिकॉर्ड नहीं हैं।" % query_lang_hi)
+
+                return []
+
             query_lang = query_lang.lower().capitalize()
             print(query_lang)
             out_row = language_data_in_eng[language_data_in_eng["Name"] == query_lang].to_dict("records")
@@ -109,10 +151,10 @@ class ActionLanguageSearch(Action):
             if len(out_row) > 0:
                 out_row = out_row[0]
                 out_text = "%s भाषा %s फैमिली से संबंधित है। \nजिसका जीनस %s हैं \nऔर ISO कोड %s हैं। \nक्या इससे आपको मदद मिली?" % \
-                    (lang.EN_HI_LANGS.get(str(out_row["Name"]).lower(), out_row["Name"]).lower(), out_row["Family"], out_row["Genus"], out_row["iso_codes"])
+                    (query_lang_hi, out_row["Family"], out_row["Genus"], out_row["iso_codes"])
                 dispatcher.utter_message(text = out_text)
             else:
-                dispatcher.utter_message(text = "कृपया मुझे माफ़ करे! मेरे पास %s भाषा के रिकॉर्ड नहीं हैं।" % lang.EN_HI_LANGS.get(str(out_row["Name"]).lower()))
+                dispatcher.utter_message(text = "कृपया मुझे माफ़ करे! मेरे पास %s भाषा के रिकॉर्ड नहीं हैं।" % query_lang_hi)
         else:
             print("didn't find entity")
             dispatcher.utter_message(text = "कृपया मुझे माफ़ करें। मैं इसका उत्तर नहीं दे पाउँगा।")
