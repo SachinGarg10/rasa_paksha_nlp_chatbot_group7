@@ -83,7 +83,7 @@ Features:
 
 - [x] Can Greet, Goodbye, Acknowledge, end conversation, retrieve information on a language, handle Hindi script
 
-- [x] Personna of Big Brother who knows about every languages.
+- [x] Persona of Big Brother who knows about every languages.
 
 - [x] Provide information about any language in hindi script.
 
