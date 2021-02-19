@@ -150,8 +150,8 @@ class ActionLanguageSearch(Action):
 
             if len(out_row) > 0:
                 out_row = out_row[0]
-                out_text = "%s भाषा %s फैमिली से संबंधित है। \nजिसका जीनस %s हैं \nऔर ISO कोड %s हैं। \nक्या इससे आपको मदद मिली?" % \
-                    (query_lang_hi, out_row["Family"], out_row["Genus"], out_row["iso_codes"])
+                out_text = "%s भाषा %s फैमिली से संबंधित है। \nजिसका जीनस %s हैं \nऔर आई एस ओ कोड %s हैं और मैक्रो एरिया %s हैं। \nक्या इससे आपको मदद मिली?" % \
+                    (query_lang_hi, out_row["Family"], out_row["Genus"], out_row["iso_codes"], lang.EN_HI_MACROAREAS.get(str(out_row['macroarea']), out_row['macroarea']))
                 dispatcher.utter_message(text = out_text)
             else:
                 dispatcher.utter_message(text = "कृपया मुझे माफ़ करे! मेरे पास %s भाषा के रिकॉर्ड नहीं हैं।" % query_lang_hi)
