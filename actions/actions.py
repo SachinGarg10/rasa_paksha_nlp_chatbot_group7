@@ -18,6 +18,13 @@ import random
 
 import lang 
 
+from spellchecker import SpellChecker
+
+
+spell = SpellChecker()
+spell.word_frequency.load_words(lang.correct_spell_words)
+spell.known(lang.correct_spell_words) 
+
 def wals_data():
     data_path1 = os.path.join("data", "cldf-datasets-wals-014143f", "raw" , "walslanguage.csv")
     wals_data1 = pd.read_csv(data_path1)
@@ -100,6 +107,15 @@ class ActionLanguageSearch(Action):
             query_macroarea = lang.HI_EN_MACROAREAS.get(query_lang_hi, None)
             query_genus = lang.HI_EN_GENUS.get(query_lang_hi, None)
             query_family = lang.HI_EN_FAMILY.get(query_lang_hi, None)
+
+            if not query_lang and not query_country and not query_macroarea and not query_genus and not query_family:
+                query_lang_hi = spell.correction(str(query_lang_hi))
+                print(query_lang_hi)
+                query_lang = lang.HI_EN_LANGS.get(query_lang_hi, None)
+                query_country = lang.HI_EN_COUNTRIES.get(query_lang_hi, None)
+                query_macroarea = lang.HI_EN_MACROAREAS.get(query_lang_hi, None)
+                query_genus = lang.HI_EN_GENUS.get(query_lang_hi, None)
+                query_family = lang.HI_EN_FAMILY.get(query_lang_hi, None)
             
             if not query_lang and not query_country and not query_macroarea and not query_genus and not query_family:
                 print("didn't find hindi entity")
