@@ -91,14 +91,14 @@ Features:
 
 - [x] Give the name of languages in a Macroarea when macroarea is entered.
 
+- [x] Provide the name of languages in a genus when genus is entered.
+
 TODO:
 ------------------
 
 - [ ] Correct alternative/similar/misspelling of the language.
 
 - [ ] Provide the name of languages in a language family when family is entered.
-
-- [ ] Provide the name of languages in a genus when genus is entered.
 
 License
 ------------------
